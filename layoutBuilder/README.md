@@ -1,16 +1,27 @@
-# layoutBuilder
+# VD_flutter_training_3
 
-A new Flutter project.
+## Responsive User Interface
 
-## Getting Started
+This project demonstrates different methods of handling responsive UI in flutter.
+Some these methods are mentioned below:
+1. Layout Builder
+2. Media Query
+3. Orientation Builder
 
-This project is a starting point for a Flutter application.
+# Screenshots
 
-A few resources to get you started if this is your first Flutter project:
+## Portrait Mode
+![](images/image_1.jpeg)
+## Landscape Mode
+![](images/image_2.jpeg)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## A top layer example of how it is done. Explore the code for more understanding
+```dart
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Widget _buildLayoutWithMediaQuery() => _buildLayout(MediaQuery.of(context).size.width > 600);
+
+Widget _buildLayoutWithLayoutBuilder() => LayoutBuilder(builder: (context, constraints) => _buildLayout(constraints.maxWidth > 600));
+
+Widget _buildLayoutWithOrientationBuilder() => OrientationBuilder(builder: (context, orientation) => _buildLayout(orientation == Orientation.landscape));
+
+```
